@@ -12,10 +12,28 @@ class Concentration {
 //    my public API for Concentration game
     var cards = [Card]  ()
     
-    func chooseCard(at index: Int) {
-        
-    }
+    var indexOfOneAndOnlyFaceUpCard: Int?
     
+    func chooseCard(at index: Int) {
+        if !cards[index].isMatched {
+            if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
+                if cards[matchIndex].id == cards[index].id {
+                    cards[matchIndex].isMatched = true
+                    cards[index].isMatched = true
+                }
+                cards[index].isFaceUp = true
+                indexOfOneAndOnlyFaceUpCard = nil
+            } else {
+//                0 or 2 cards are faceUp
+                for flipDownIndex  in cards.indices {
+                    cards[flipDownIndex].isFaceUp = false
+                }
+                cards[index].isFaceUp = true
+                indexOfOneAndOnlyFaceUpCard = index
+            }
+        }
+    }
+     
     init (numbersOfPairsOfCards: Int)  {
         for _ in 0..<numbersOfPairsOfCards {
             let card = Card()
@@ -23,7 +41,9 @@ class Concentration {
 //            cards.append(card)
             cards += [card, card]
         }
-//        ToDo:  shuffle the cards
+//         
+//        let setOfCards = Set<Card>(cards)
+//        cards = Array<Card>(setOfCards)
     }
 }
  

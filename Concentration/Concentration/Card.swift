@@ -15,7 +15,7 @@ struct Card {
 //    NO emoji
 //    because Model is UI independent
 //    you can change the appearance of cards
-//    but it sh ould not influence to logic
+//    but it should not influence on logic
     
 //    utility methods and vars for Card 
     static var identifierFactory = 0
