@@ -10,11 +10,33 @@ import Foundation
 
 class Concentration {
 //    my public API for Concentration game
-    var cards = [Card]  ()
+    private(set)  var cards = [Card]  ()
     
-    var indexOfOneAndOnlyFaceUpCard: Int?
+    private var indexOfOneAndOnlyFaceUpCard: Int? {
+        get {
+            var foundIndex: Int?
+            for index in cards.indices {
+                if cards[index].isFaceUp {
+                    if foundIndex == nil {
+                        foundIndex = index
+                    } else {
+                         return nil
+                    }
+                }
+            }
+            return foundIndex
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = (index == newValue)
+            }
+        }
+    }
     
     func chooseCard(at index: Int) {
+//        checks, similar to guard
+//        but in case of guard the code will not crash
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)")
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 if cards[matchIndex].id == cards[index].id {
@@ -22,19 +44,20 @@ class Concentration {
                     cards[index].isMatched = true
                 }
                 cards[index].isFaceUp = true
-                indexOfOneAndOnlyFaceUpCard = nil
+//                indexOfOneAndOnlyFaceUpCard = nil
             } else {
 //                0 or 2 cards are faceUp
-                for flipDownIndex  in cards.indices {
-                    cards[flipDownIndex].isFaceUp = false
-                }
-                cards[index].isFaceUp = true
+//                for flipDownIndex  in cards.indices {
+//                    cards[flipDownIndex].isFaceUp = false
+//                } 
+//                cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
     }
      
     init (numbersOfPairsOfCards: Int)  {
+        assert(numbersOfPairsOfCards>0, "Concentration.init(numbersOfPairsOfCards : \(numbersOfPairsOfCards)")
         for _ in 0..<numbersOfPairsOfCards {
             let card = Card()
 //            cards.append(card)

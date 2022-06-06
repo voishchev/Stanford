@@ -9,7 +9,7 @@
 import Foundation
 
 struct Card {
-    var isFaceUp = false
+    var isFaceUp =  false
     var isMatched = false
     var id: Int
 //    NO emoji
@@ -18,10 +18,10 @@ struct Card {
 //    but it should not influence on logic
     
 //    utility methods and vars for Card 
-    static var identifierFactory = 0
-    static func getAUniqIdentifier() -> Int  {
-        identifierFactory += 1
-        return identifierFactory
+    private static var identifierFactor = 0
+    private static func getAUniqIdentifier() -> Int  {
+        identifierFactor += 1
+        return identifierFactor
     }
     init() {
 //        self. is for distinguishing IDs: one - as our self variable
