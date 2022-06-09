@@ -8,10 +8,19 @@
 
 import Foundation
 
-struct Card {
+struct Card: Hashable {
+    
+//    Let's satisfy Hashable protocol
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     var isFaceUp =  false
     var isMatched = false
-    var id: Int
+    private var id: Int
 //    NO emoji
 //    because Model is UI independent
 //    you can change the appearance of cards

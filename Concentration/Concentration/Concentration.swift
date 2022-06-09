@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Concentration {
+struct Concentration {
 //    my public API for Concentration game
     private(set)  var cards = [Card]  ()
     
@@ -33,13 +33,13 @@ class Concentration {
         }
     }
     
-    func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
 //        checks, similar to guard
 //        but in case of guard the code will not crash
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)")
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
-                if cards[matchIndex].id == cards[index].id {
+                if cards[matchIndex] == cards[index] {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                 }
@@ -57,16 +57,16 @@ class Concentration {
     }
      
     init (numbersOfPairsOfCards: Int)  {
-        assert(numbersOfPairsOfCards>0, "Concentration.init(numbersOfPairsOfCards : \(numbersOfPairsOfCards)")
+        assert(numbersOfPairsOfCards>0, "Concentration.init(numbersOfPairsOfCards  : \(numbersOfPairsOfCards)")
         for _ in 0..<numbersOfPairsOfCards {
             let card = Card()
 //            cards.append(card)
 //            cards.append(card)
-            cards += [card, card]
+            cards += [card]
         }
-//         
-//        let setOfCards = Set<Card>(cards)
-//        cards = Array<Card>(setOfCards)
+//   Shuffle and duplicate cards
+        cards = Array(Set(cards))
+        cards.append(contentsOf: Set(cards))
     }
 }
  
