@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         return cardButtons.count / 2
     }
 
-    private func updateLabel( ) {
+    private func updateLabel() {
         let attributes: [NSAttributedString.Key: Any] = [
             .strokeWidth: 5.0,
             .strokeColor: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             updateLabel()
         }
     }
-    
+
 //    outlets are almost always private
 //   outlet collection
     @IBOutlet private var cardButtons: [UIButton]!
