@@ -10,8 +10,7 @@ import Foundation
 
 struct Concentration {
 //    my public API for Concentration game
-    private(set)  var cards = [Card]  ()
-    
+    private(set)  var cards = [Card]()
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
             let faceUpCardIndices = cards.indices.filter {cards[$0].isFaceUp}
@@ -35,15 +34,13 @@ struct Concentration {
                     cards[index].isMatched = true
                 }
                 cards[index].isFaceUp = true
-//                indexOfOneAndOnlyFaceUpCard = nil
             } else {
-//                0 or 2 cards are faceUp
-//                for flipDownIndex  in cards.indices {
-//                    cards[flipDownIndex].isFaceUp = false
-//                } 
-//                cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = index
             }
+        }
+        
+        if cards.filter({!$0.isMatched}).count == 0 {
+            print("GAME OVER!")
         }
     }
      

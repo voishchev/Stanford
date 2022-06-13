@@ -34,12 +34,19 @@ class ViewController: UIViewController {
 //    outlets are almost always private
 //   outlet collection
     @IBOutlet private var cardButtons: [UIButton]!
-//   outlet
     @IBOutlet private weak var flipCountLabel: UILabel! {
         didSet {
             updateLabel()
         }
     }
+    @IBAction func newGame(_ sender: UIButton) {
+        game = Concentration(numbersOfPairsOfCards: numbersOfPairsOfCards)
+        updateViewFromModel()
+        flipCount = 0
+        emojiChoices = "🎃👻🤢🦺🦵🥑🦾💋👁🌵"
+    }
+    
+    
     @IBAction private  func touchCard(_ sender: UIButton) {
         flipCount += 1
 //       conditional
@@ -50,8 +57,6 @@ class ViewController: UIViewController {
         } else {
             print("Chosen card is not in a [cardButtons]")
         }
-//       old implementation, before merging touch*Card funcs
-//        flipCard(withEmoji: "👻", on: sender)
     }
     
     private func updateViewFromModel() {
@@ -72,12 +77,9 @@ class ViewController: UIViewController {
     private  func getEmoji(for card: Card) -> String {
         if emoji[card] == nil {
             if emojiChoices.count > 0 {
-    //            remove(at: ) not only removes, but also returnes that removing value
                 emoji[card] = String(emojiChoices.remove(at: emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)))
-//                emoji[card] = emojiChoices.remove(at: emojiChoices.count.arc4random)
             }
         }
-//        if nil then return '? '
         return emoji[card] ?? "?"
     }
  }
