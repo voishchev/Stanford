@@ -50,11 +50,12 @@ struct Concentration {
             let card = Card()
 //            cards.append(card)
 //            cards.append(card)
-            cards += [card]
+            cards += [card, card]
         }
-//   Shuffle and duplicate cards
-        cards = Array(Set(cards))
-        cards.append(contentsOf: Set(cards))
+//   Shuffle cards
+//        cards = Array(Set(cards))
+//        cards.append(contentsOf: Set(cards))
+        cards.shuffle()
     }
 }
  

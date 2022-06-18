@@ -15,6 +15,7 @@
 		8808F63C28568CB200A4E08F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8808F63A28568CB200A4E08F /* LaunchScreen.storyboard */; };
 		8808F64628568D4200A4E08F /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808F64528568D4200A4E08F /* PlayingCard.swift */; };
 		8808F6482856936300A4E08F /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808F6472856936300A4E08F /* PlayingCardDeck.swift */; };
+		8820C9DE2857ACB000B19D63 /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820C9DD2857ACB000B19D63 /* PlayingCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8808F63D28568CB200A4E08F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8808F64528568D4200A4E08F /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		8808F6472856936300A4E08F /* PlayingCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardDeck.swift; sourceTree = "<group>"; };
+		8820C9DD2857ACB000B19D63 /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				8808F64528568D4200A4E08F /* PlayingCard.swift */,
 				8808F6472856936300A4E08F /* PlayingCardDeck.swift */,
 				8808F63328568CB200A4E08F /* ViewController.swift */,
+				8820C9DD2857ACB000B19D63 /* PlayingCardView.swift */,
 				8808F63528568CB200A4E08F /* Main.storyboard */,
 				8808F63828568CB200A4E08F /* Assets.xcassets */,
 				8808F64428568D0900A4E08F /* supprtingFiles */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8808F63428568CB200A4E08F /* ViewController.swift in Sources */,
+				8820C9DE2857ACB000B19D63 /* PlayingCardView.swift in Sources */,
 				8808F63028568CB200A4E08F /* AppDelegate.swift in Sources */,
 				8808F6482856936300A4E08F /* PlayingCardDeck.swift in Sources */,
 				8808F64628568D4200A4E08F /* PlayingCard.swift in Sources */,

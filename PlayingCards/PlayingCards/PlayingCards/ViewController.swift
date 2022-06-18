@@ -13,12 +13,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        var deck = PlayingCardDeck()
-        for _ in 1...10 {
-            if let card = deck.draw()  {
-                print("\(card)" )
-            }
-        }
+//        var deck = PlayingCardDeck()
+//        for _ in 1...10 {
+//            if let card = deck.draw()  {
+//                print("\(card)" )
+//            }
+//        }
     }
 }
 
